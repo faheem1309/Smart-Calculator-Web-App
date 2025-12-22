@@ -1,31 +1,45 @@
-Smart calculator web app
+# Smart Calculator Web App
 
-A dynamic little tool crafted with HTML, CSS, along with a touch of JavaScript to bring it to life - responsive enough to adapt, interactive enough to respond the moment you start typing.
+A responsive and interactive calculator built using HTML, CSS, and JavaScript.  
 Designed to look and behave like a real calculator with a modern UI and smooth interactions.
 
-🚀 Features - Realistic calculator layout
-A keyboard can plug in to help out when needed
+## 🚀 Features
+- Realistic calculator layout  
+- Keyboard input support  
+- Dark and Light mode toggle  
+- Smooth button animations  
+- Clean and beginner-friendly JavaScript logic  
+- Fully responsive design  
+- Zero external dependencies  
 
-Switch between dark and light themes - subtle motion on button presses
+## 🛠️ Technologies Used
+- HTML5  
+- CSS3  
+- JavaScript (Vanilla)
 
-Clean JavaScript setup, straightforward enough for newcomers. The layout adjusts smoothly across devices, built to fit naturally
-- Zero external dependencies
+## ⌨️ Keyboard Shortcuts
+- Numbers: 0–9  
+- Operators: +  -  *  /  %  
+- Calculate: Enter  
+- Delete last input: Backspace  
+- Clear all: Esc  
 
+## 📂 Project Structure
+├── index.html  
+├── style.css  
+└── script.js  
 
-
-- Compute: Type. Erase most recent entry: Press Backspace. Wipe everything: Hit Escape.
-- 📁 Project Layout.
-- └── index.html
-├── style.css
-└── script.js
-
-🌐 Deployment. Get this project live fast - Vercel handles the setup without fuss.
-
-4. Upload the project to GitHub. Bring it into Vercel next. Hit deploy once ready. The app goes live from there
+## 🌐 Deployment
+This project can be deployed easily using Vercel:
+1. Push the project to GitHub  
+2. Import the repository in Vercel  
+3. Click Deploy  
+4. Your app is live  
 
 No build configuration required.
 
-
+## 📄 License
+This project is released under the **MIT License**.  
 You are free to use, modify, and distribute this project for learning and portfolio purposes.
 
-If you like this project, maybe give it a star.
+⭐ If you find this project useful, consider giving it a star.
