@@ -10,12 +10,20 @@
 
 <div class="calculator">
     <div class="top-bar">
-        <span class="brand">Calculator</span>
-        <button id="themeToggle">🌙</button>
+        <span class="brand">Smart Calculator</span>
+        <div class="actions">
+            <button id="historyToggle">🕘</button>
+            <button id="themeToggle">🌙</button>
+        </div>
     </div>
 
     <div class="display">
         <input type="text" id="result" readonly>
+    </div>
+
+    <div class="history-panel" id="historyPanel">
+        <ul id="historyList"></ul>
+        <button id="clearHistory">Clear History</button>
     </div>
 
     <div class="buttons">

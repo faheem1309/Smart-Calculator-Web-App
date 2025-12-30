@@ -49,11 +49,12 @@ body {
     margin-bottom: 10px;
 }
 
-#themeToggle {
+.actions button {
     background: none;
     border: none;
     font-size: 1.2rem;
     cursor: pointer;
+    margin-left: 8px;
 }
 
 .display input {
@@ -66,7 +67,39 @@ body {
     font-size: 2rem;
     text-align: right;
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+.history-panel {
+    display: none;
+    background: var(--display-bg);
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 10px;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.history-panel ul {
+    list-style: none;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+.history-panel li {
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+#clearHistory {
+    width: 100%;
+    margin-top: 8px;
+    background: var(--clear);
+    border: none;
+    color: #fff;
+    padding: 5px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .buttons {
@@ -84,10 +117,6 @@ body {
     background: var(--btn-bg);
     color: var(--text);
     transition: 0.2s;
-}
-
-.btn:hover {
-    opacity: 0.85;
 }
 
 .btn:active {
