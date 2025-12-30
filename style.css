@@ -144,3 +144,17 @@ body {
 .zero {
     grid-column: span 2;
 }
+
+.hidden {
+    display: none;
+}
+
+.scientific {
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 10px;
+}
+
+.sci {
+    background: #6c5ce7;
+    color: #fff;
+}

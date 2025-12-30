@@ -1,33 +1,47 @@
 const display = document.getElementById("result");
 const buttons = document.querySelectorAll(".btn");
+const sciButtons = document.querySelectorAll(".sci");
 const themeToggle = document.getElementById("themeToggle");
 const historyToggle = document.getElementById("historyToggle");
 const historyPanel = document.getElementById("historyPanel");
 const historyList = document.getElementById("historyList");
 const clearHistoryBtn = document.getElementById("clearHistory");
+const modeToggle = document.getElementById("modeToggle");
+const scientificPad = document.getElementById("scientificPad");
 
 let expression = "";
+let sciMode = false;
 let history = JSON.parse(localStorage.getItem("calcHistory")) || [];
 
-/* ---------- Core ---------- */
+/* ---------- Utilities ---------- */
 
-function updateDisplay(value) {
-    display.value = value;
+function updateDisplay(val) {
+    display.value = val;
 }
 
-function isValidExpression(exp) {
-    return /^[0-9+\-*/.%() ]+$/.test(exp);
+function toRadians(deg) {
+    return deg * Math.PI / 180;
 }
 
-function safeEvaluate(exp) {
-    if (!isValidExpression(exp)) throw Error("Invalid");
+/* ---------- Safe Evaluation ---------- */
+
+function evaluateExpression(exp) {
+    exp = exp
+        .replace(/π/g, Math.PI)
+        .replace(/√/g, "Math.sqrt")
+        .replace(/sin/g, "Math.sin")
+        .replace(/cos/g, "Math.cos")
+        .replace(/tan/g, "Math.tan")
+        .replace(/log/g, "Math.log10")
+        .replace(/ln/g, "Math.log");
+
     return Function(`"use strict"; return (${exp})`)();
 }
 
 /* ---------- History ---------- */
 
-function saveHistory(exp, result) {
-    history.unshift(`${exp} = ${result}`);
+function saveHistory(exp, res) {
+    history.unshift(`${exp} = ${res}`);
     history = history.slice(0, 10);
     localStorage.setItem("calcHistory", JSON.stringify(history));
     renderHistory();
@@ -35,48 +49,44 @@ function saveHistory(exp, result) {
 
 function renderHistory() {
     historyList.innerHTML = "";
-    history.forEach(item => {
+    history.forEach(h => {
         const li = document.createElement("li");
-        li.textContent = item;
+        li.textContent = h;
         li.onclick = () => {
-            expression = item.split("=")[0].trim();
+            expression = h.split("=")[0].trim();
             updateDisplay(expression);
         };
         historyList.appendChild(li);
     });
 }
-
 renderHistory();
 
-/* ---------- Input Handling ---------- */
+/* ---------- Input ---------- */
 
-buttons.forEach(btn => {
-    btn.addEventListener("click", () => handleInput(btn.innerText));
-});
+buttons.forEach(btn =>
+    btn.addEventListener("click", () => handleInput(btn.innerText))
+);
 
-document.addEventListener("keydown", e => {
-    if ("0123456789+-*/.%".includes(e.key)) handleInput(e.key);
-    if (e.key === "Enter") handleInput("=");
-    if (e.key === "Backspace") handleInput("DEL");
-    if (e.key === "Escape") handleInput("AC");
-});
+sciButtons.forEach(btn =>
+    btn.addEventListener("click", () => handleInput(btn.innerText))
+);
 
-function handleInput(value) {
-    if (value === "AC") {
+function handleInput(val) {
+    if (val === "AC") {
         expression = "";
         updateDisplay("");
         return;
     }
 
-    if (value === "DEL") {
+    if (val === "DEL") {
         expression = expression.slice(0, -1);
         updateDisplay(expression);
         return;
     }
 
-    if (value === "=") {
+    if (val === "=") {
         try {
-            const result = safeEvaluate(expression);
+            const result = evaluateExpression(expression);
             saveHistory(expression, result);
             expression = result.toString();
             updateDisplay(expression);
@@ -87,9 +97,22 @@ function handleInput(value) {
         return;
     }
 
-    expression += value;
+    if (["sin", "cos", "tan", "log", "ln"].includes(val)) {
+        expression += val + "(";
+    } else {
+        expression += val;
+    }
+
     updateDisplay(expression);
 }
+
+/* ---------- Mode Toggle ---------- */
+
+modeToggle.addEventListener("click", () => {
+    sciMode = !sciMode;
+    scientificPad.classList.toggle("hidden");
+    modeToggle.textContent = sciMode ? "NORM" : "SCI";
+});
 
 /* ---------- Theme ---------- */
 

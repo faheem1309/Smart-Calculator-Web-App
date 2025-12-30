@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Smart Calculator</title>
+    <title>Smart Scientific Calculator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,6 +12,7 @@
     <div class="top-bar">
         <span class="brand">Smart Calculator</span>
         <div class="actions">
+            <button id="modeToggle">SCI</button>
             <button id="historyToggle">🕘</button>
             <button id="themeToggle">🌙</button>
         </div>
@@ -26,6 +27,23 @@
         <button id="clearHistory">Clear History</button>
     </div>
 
+    <!-- Scientific Buttons -->
+    <div class="buttons scientific hidden" id="scientificPad">
+        <button class="btn sci">sin</button>
+        <button class="btn sci">cos</button>
+        <button class="btn sci">tan</button>
+        <button class="btn sci">√</button>
+
+        <button class="btn sci">log</button>
+        <button class="btn sci">ln</button>
+        <button class="btn sci">π</button>
+        <button class="btn sci">^</button>
+
+        <button class="btn sci">(</button>
+        <button class="btn sci">)</button>
+    </div>
+
+    <!-- Normal Buttons -->
     <div class="buttons">
         <button class="btn clear">AC</button>
         <button class="btn delete">DEL</button>
