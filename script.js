@@ -14,7 +14,6 @@ let sciMode = false;
 let history = JSON.parse(localStorage.getItem("calcHistory")) || [];
 
 /* ---------- Utilities ---------- */
-
 function updateDisplay(val) {
     display.value = val;
 }
@@ -24,7 +23,6 @@ function toRadians(deg) {
 }
 
 /* ---------- Safe Evaluation ---------- */
-
 function evaluateExpression(exp) {
     exp = exp
         .replace(/π/g, Math.PI)
@@ -39,7 +37,6 @@ function evaluateExpression(exp) {
 }
 
 /* ---------- History ---------- */
-
 function saveHistory(exp, res) {
     history.unshift(`${exp} = ${res}`);
     history = history.slice(0, 10);
@@ -62,7 +59,6 @@ function renderHistory() {
 renderHistory();
 
 /* ---------- Input ---------- */
-
 buttons.forEach(btn =>
     btn.addEventListener("click", () => handleInput(btn.innerText))
 );
@@ -107,7 +103,6 @@ function handleInput(val) {
 }
 
 /* ---------- Mode Toggle ---------- */
-
 modeToggle.addEventListener("click", () => {
     sciMode = !sciMode;
     scientificPad.classList.toggle("hidden");
@@ -115,7 +110,6 @@ modeToggle.addEventListener("click", () => {
 });
 
 /* ---------- Theme ---------- */
-
 themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("light");
     themeToggle.textContent =
@@ -123,7 +117,6 @@ themeToggle.addEventListener("click", () => {
 });
 
 /* ---------- History Toggle ---------- */
-
 historyToggle.addEventListener("click", () => {
     historyPanel.style.display =
         historyPanel.style.display === "block" ? "none" : "block";
@@ -133,4 +126,21 @@ clearHistoryBtn.addEventListener("click", () => {
     history = [];
     localStorage.removeItem("calcHistory");
     renderHistory();
+});
+
+/* ---------- Keyboard Support ---------- */
+document.addEventListener("keydown", (e) => {
+    const key = e.key;
+
+    if (!isNaN(key)) {        // Number keys
+        handleInput(key);
+    } else if ("+-*/.%".includes(key)) { // Operators
+        handleInput(key);
+    } else if (key === "Enter") {       // Equals
+        handleInput("=");
+    } else if (key === "Backspace") {   // Delete
+        handleInput("DEL");
+    } else if (key === "Escape") {      // Clear
+        handleInput("AC");
+    }
 });
