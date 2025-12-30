@@ -1,45 +1,118 @@
-# Smart Calculator Web App
+# 🧮 Smart Calculator Web App (v2)
 
-A responsive and interactive calculator built using HTML, CSS, and JavaScript.  
-Designed to look and behave like a real calculator with a modern UI and smooth interactions.
+<marquee behavior="alternate" scrollamount="6">
+🚀 Normal + Scientific Calculator | HTML • CSS • JavaScript | Live Deployed
+</marquee>
+
+A modern, responsive **Smart Calculator Web Application** featuring both **Normal** and **Scientific** calculation modes.  
+Designed with clean UI, safe computation logic, keyboard support, persistent history, and real-world usability.
+
+🔗 **Live Demo:** https://smart-calculator-web-app.vercel.app  
+🔗 **GitHub Repository:** https://github.com/faheem1309/Smart-Calculator-Web-App
+
+---
 
 ## 🚀 Features
-- Realistic calculator layout  
-- Keyboard input support  
-- Dark and Light mode toggle  
-- Smooth button animations  
-- Clean and beginner-friendly JavaScript logic  
-- Fully responsive design  
-- Zero external dependencies  
 
-## 🛠️ Technologies Used
-- HTML5  
-- CSS3  
-- JavaScript (Vanilla)
+### ✅ Normal Calculator
+- Basic arithmetic operations (+ − × ÷ %)
+- Decimal input support
+- Clear (AC) and Delete (DEL)
+- Full keyboard input support
+
+### 🧪 Scientific Calculator
+- Trigonometric functions: sin, cos, tan
+- Square root (√)
+- Power operation (^)
+- Logarithmic functions: log, ln
+- Mathematical constant: π
+- Bracket-based expressions
+
+### 🧠 Smart Enhancements
+- Calculation History panel
+- Click-to-reuse previous calculations
+- Persistent history using Local Storage
+- Safer and controlled expression evaluation
+- Light & Dark theme toggle
+- Fully responsive UI (Mobile + Desktop)
+
+---
 
 ## ⌨️ Keyboard Shortcuts
-- Numbers: 0–9  
-- Operators: +  -  *  /  %  
-- Calculate: Enter  
-- Delete last input: Backspace  
-- Clear all: Esc  
+
+| Action | Key |
+|------|----|
+| Numbers | 0 – 9 |
+| Operators | +  -  *  /  % |
+| Calculate | Enter |
+| Delete | Backspace |
+| Clear All | Escape |
+
+---
+
+## 🛠️ Technology Stack
+
+- **HTML5** – Structure  
+- **CSS3** – Styling, Themes, Animations  
+- **JavaScript (Vanilla)** – Logic, Scientific Functions, History  
+- **GitHub** – Version Control  
+- **Vercel** – Deployment  
+
+No frameworks.  
+No external libraries.  
+Strong fundamentals.
+
+---
 
 ## 📂 Project Structure
-├── index.html  
-├── style.css  
-└── script.js  
+
+Smart-Calculator-Web-App/
+│
+├── index.html
+├── style.css
+├── script.js
+
+
+---
 
 ## 🌐 Deployment
-This project can be deployed easily using Vercel:
+
+The application is deployed using **Vercel**.
+
+### Deployment Steps
 1. Push the project to GitHub  
-2. Import the repository in Vercel  
-3. Click Deploy  
-4. Your app is live  
+2. Import the repository into Vercel  
+3. Click **Deploy**  
+4. Application goes live instantly  
 
 No build configuration required.
 
-## 📄 License
-This project is released under the **MIT License**.  
-You are free to use, modify, and distribute this project for learning and portfolio purposes.
+---
+
+## 📈 Feature Evolution
+
+**Version 1**
+- Normal calculator
+- Theme toggle
+- Keyboard support
+
+**Version 2**
+- Normal + Scientific calculator modes
+- Calculation history with persistence
+- Improved UX and safer logic
+- Enhanced scalability
+
+---
+
+## 🔮 Future Scope
+
+- Degree / Radian mode toggle
+- Custom mathematical expression parser
+- Progressive Web App (PWA)
+- Offline functionality
+- Framework-based version using React or Vue
+
+---
+
 
 ⭐ If you find this project useful, consider giving it a star.
